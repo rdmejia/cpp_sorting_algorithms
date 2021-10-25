@@ -130,9 +130,12 @@
     <ClInclude Include="Contact.h" />
     <ClInclude Include="ContactNameComparator.h" />
     <ClInclude Include="ContactSalaryComparator.h" />
+    <ClInclude Include="IntComparator.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SortedList.h" />
+    <ClInclude Include="SortedListMerger.h" />
     <ClInclude Include="SortingAlgorithms.h" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +144,7 @@
     <ClCompile Include="Contact.cpp" />
     <ClCompile Include="ContactNameComparator.cpp" />
     <ClCompile Include="ContactSalaryComparator.cpp" />
+    <ClCompile Include="IntComparator.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -148,6 +152,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SortedList.cpp" />
+    <ClCompile Include="SortedListMerger.cpp" />
     <ClCompile Include="SortingAlgorithms.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="contacts.csv" />
+    <None Include="contacts2.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

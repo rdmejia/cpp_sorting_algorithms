@@ -4,6 +4,9 @@
 #include <string>
 #include "ContactSalaryComparator.h"
 #include "ContactNameComparator.h"
+#include "SortedList.h"
+#include "IntComparator.h"
+#include "SortedListMerger.h"
 
 using namespace System;
 using std::string;
@@ -16,14 +19,12 @@ void MarshalString(String^ s, string& os) {
     Marshal::FreeHGlobal(IntPtr((void*)chars));
 }
 
-List<Contact>* readContacts(String^ filePath) {
-    List<Contact>* contacts = new List<Contact>();
-
-    array<System::String ^> ^lines = System::IO::File::ReadAllLines(filePath);
+List<Contact>* readContacts(List<Contact>* contacts, String^ filePath) {
+    array<System::String^>^ lines = System::IO::File::ReadAllLines(filePath);
 
     for (int i = 0; i < lines->Length; i++) {
-        array<String^> ^line = lines[i]->Split(',');
-        
+        array<String^>^ line = lines[i]->Split(',');
+
         string name;
         MarshalString(line[0], name);
 
@@ -35,6 +36,18 @@ List<Contact>* readContacts(String^ filePath) {
     }
 
     return contacts;
+}
+
+List<Contact>* readContacts(String^ filePath) {
+    List<Contact>* contacts = new List<Contact>();
+
+    return readContacts(contacts, filePath);
+}
+
+List<Contact>* readContacts(String^ filePath, Comparator<Contact>* comparator) {
+    List<Contact>* contacts = new SortedList<Contact>(comparator);
+
+    return readContacts(contacts, filePath);
 }
 
 void showContacts(List<Contact>* contacts) {
@@ -51,18 +64,21 @@ void showContacts(List<Contact>* contacts) {
 
 int main(array<System::String ^> ^args)
 {
-    List<Contact>* contacts = readContacts("contacts.csv");
+    Comparator<Contact>* comparator = new ContactSalaryComparator();
 
-    Console::WriteLine("Contacts original sort:\n");
-    showContacts(contacts);
+    List<Contact>* contactsA = readContacts("contacts.csv", comparator);
+    List<Contact>* contactsB = readContacts("contacts2.csv", comparator);
 
-    contacts = contacts->bubbleSort(new ContactSalaryComparator());
-    Console::WriteLine("\nContacts sorted by salary:\n");
-    showContacts(contacts);
+    Console::WriteLine("\nContacts A sorted by salary:\n");
+    showContacts(contactsA);
 
-    contacts = contacts->bubbleSort(new ContactNameComparator());
-    Console::WriteLine("\nContacts sorted by name:\n");
-    showContacts(contacts);
+    Console::WriteLine("\nContacts B sorted by salary:\n");
+    showContacts(contactsB);
+    
+    List<Contact>* mergedList = SortedListMerger<Contact>::mergeLists(contactsB, contactsA, comparator);
+
+    Console::WriteLine("\nContacts A and Contacts B merged and sorted by salary:\n");
+    showContacts(mergedList);
 
     return 0;
 }

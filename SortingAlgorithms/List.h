@@ -4,7 +4,8 @@
 template <typename T>
 class List
 {
-	struct Node {
+public:
+	static struct Node {
 		T* item;
 		Node* next;
 
@@ -14,12 +15,17 @@ class List
 		}
 	};
 
+protected:
 	Node* head;
 	Node* tail;
 
 	int size = 0;
 
 public:
+	List<T>::Node* getHead() {
+		return this->head;
+	}
+
 	int getSize() {
 		return this->size;
 	}
@@ -28,7 +34,7 @@ public:
 		return this->size == 0;
 	}
 
-	void add(T* item) {
+	virtual void add(T* item) {
 		Node* node = new Node(item);
 
 		if (this->isEmpty()) {

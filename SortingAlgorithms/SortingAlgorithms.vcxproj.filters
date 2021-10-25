@@ -44,6 +44,15 @@
     <ClInclude Include="ContactNameComparator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SortedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IntComparator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SortedListMerger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SortingAlgorithms.cpp">
@@ -70,6 +79,15 @@
     <ClCompile Include="ContactNameComparator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SortedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IntComparator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SortedListMerger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
@@ -78,5 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="contacts.csv" />
+    <None Include="contacts2.csv" />
   </ItemGroup>
 </Project>
