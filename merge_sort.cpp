@@ -33,7 +33,7 @@ int* sort_array(int* numbers, int length, int* result) {
         i++;
     }
 
-    while (j < length / 2) {
+    while (j < (length / 2 + (length % 2))) {
         result[i + j] = right_array[j];
         j++;
     }
