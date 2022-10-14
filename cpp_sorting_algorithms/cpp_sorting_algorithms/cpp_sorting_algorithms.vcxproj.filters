@@ -26,19 +26,22 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Contact.h">
+    <ClInclude Include="Iterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SortingAlgorithms.h">
+    <ClInclude Include="LinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Comparator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ContactSalaryComparator.h">
+    <ClInclude Include="IntComparator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ContactNameComparator.h">
@@ -46,7 +49,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SortingAlgorithms.cpp">
+    <ClCompile Include="cpp_sorting_algorithms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -55,16 +58,25 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Contact.cpp">
+    <ClCompile Include="Iterator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Comparator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ContactSalaryComparator.cpp">
+    <ClCompile Include="IntComparator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Contact.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ContactNameComparator.cpp">

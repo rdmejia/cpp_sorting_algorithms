@@ -20,10 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{B3E0ECE9-4591-4B7C-A580-F331D4199061}</ProjectGuid>
+    <ProjectGuid>{81CE0192-3E27-4FCB-A0B4-CBA453D1C386}</ProjectGuid>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
-    <RootNamespace>SortingAlgorithms</RootNamespace>
+    <RootNamespace>cppsortingalgorithms</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -129,26 +129,32 @@
     <ClInclude Include="Comparator.h" />
     <ClInclude Include="Contact.h" />
     <ClInclude Include="ContactNameComparator.h" />
-    <ClInclude Include="ContactSalaryComparator.h" />
+    <ClInclude Include="IntComparator.h" />
+    <ClInclude Include="Iterator.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="SortingAlgorithms.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Comparator.cpp" />
     <ClCompile Include="Contact.cpp" />
     <ClCompile Include="ContactNameComparator.cpp" />
-    <ClCompile Include="ContactSalaryComparator.cpp" />
+    <ClCompile Include="cpp_sorting_algorithms.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="IntComparator.cpp" />
+    <ClCompile Include="Iterator.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="List.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SortingAlgorithms.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
