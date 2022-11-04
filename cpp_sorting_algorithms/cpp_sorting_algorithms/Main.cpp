@@ -76,6 +76,13 @@ int main(array<System::String^>^ args) {
     Console::WriteLine("\n===============By Name====================");
     show_contacts(contacts_by_name);
 
+    Console::WriteLine("\n====Salary >= 4000 || Name Contains 'L'====");
+    auto sub_contacts = contacts->filter([](Contact* contact) {
+        int l_index = contact->get_name().find('L', 0);
+        return contact->get_salary() >= 4000 || l_index >= 0;
+        });
+    show_contacts(sub_contacts);
+
     Console::WriteLine("\n======Setting name to Lionel Messi========\n");
     contacts->get(0)->set_name("Lionel Messi");
 

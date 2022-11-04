@@ -2,6 +2,7 @@
 
 #include "Iterator.h"
 #include "Comparator.h"
+#include <functional>
 
 template <typename T>
 class List {
@@ -30,4 +31,8 @@ public:
     virtual List<T>* bubble_sort(int (*comparator)(T*, T*)) = 0;
 
     virtual List<T>* merge_sort(Comparator<T>* comparator) = 0;
+
+    virtual List<T>* filter(std::function<bool(T*)> predicate) = 0;
+
+    virtual T* binary_search(std::function<int(T*)> compare) = 0;
 };

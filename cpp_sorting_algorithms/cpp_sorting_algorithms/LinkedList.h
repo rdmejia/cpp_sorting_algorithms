@@ -118,6 +118,24 @@ private:
 		return head;
 	}
 
+	Node* binary_search(Node* head, Node* middle, int size, std::function<int(T*)> compare) {
+		if (!size && compare(head->item) != 0) {
+			return nullptr;
+		}
+
+		int comparison = compare(middle->item);
+
+		if (comparison == 0) {
+			return middle;
+		}
+
+		if (comparison > 0) {
+			return binary_search(middle, find_node_n(middle, size / 2), size / 2, compare);
+		}
+
+		return binary_search(head, find_node_n(head, size / 2), size / 2, compare);
+	}
+
 public:
 
 	virtual int get_size() {
@@ -262,6 +280,28 @@ public:
 	virtual List<T>* merge_sort(Comparator<T>* comparator) {
 		this->head = merge_sort(this->head, this->get_size(), comparator);
 		return this;
+	}
+
+	virtual List<T>* filter(std::function<bool(T*)> predicate) {
+		List<T>* results = new LinkedList();
+
+		Node* iterator = this->head;
+
+		while (iterator) {
+			if (predicate(iterator->item)) {
+				results->add(iterator->item);
+			}
+
+			iterator = iterator->next;
+		}
+
+		return results;
+	}
+
+	virtual T* binary_search(std::function<int(T*)> compare) {
+		int size = this->get_size();
+		Node* result = binary_search(this->head, find_node_n(head, size / 2), size, compare);
+		return result ? result->item : nullptr;
 	}
 };
 
